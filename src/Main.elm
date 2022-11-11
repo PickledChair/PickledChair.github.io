@@ -1,7 +1,7 @@
 module Main exposing (main)
 
 import Html exposing (Html, div, text)
-import Html.Attributes as Attr
+import Html.Attributes as Attr exposing (class)
 
 
 type WebServiceName
@@ -60,40 +60,50 @@ initialModel =
 
 blogInfoView : BlogInfo -> Html msg
 blogInfoView info =
-    div []
-        [ Html.h2 [] [ text "Blog" ]
-        , div []
-            [ Html.a
-                [ Attr.href info.blogLink, Attr.target "_blank" ]
-                [ text info.blogName ]
+    Html.section [ class "blog" ]
+        [ div [ class "blog-container w-container" ]
+            [ Html.h2 [ class "heading-decoration" ] [ text "Blog" ]
+            , div []
+                [ Html.a
+                    [ Attr.href info.blogLink, Attr.target "_blank" ]
+                    [ text info.blogName ]
+                ]
             ]
         ]
 
 
 accountsInfoView : List AccountInfo -> Html msg
 accountsInfoView infos =
-    div []
-        [ Html.h2 [] [ text "Accounts" ]
-        , div []
-            (List.map
-                (\info ->
-                    div []
-                        [ text (webServiceNameToString info.serviceName ++ ": ")
-                        , Html.a
-                            [ Attr.href info.accountLink
-                            , Attr.target "_blank"
+    Html.section [ class "accounts" ]
+        [ div [ class "accounts-container w-container" ]
+            [ Html.h2 [ class "heading-decoration" ] [ text "Accounts" ]
+            , div []
+                (List.map
+                    (\info ->
+                        div []
+                            [ text (webServiceNameToString info.serviceName ++ ": ")
+                            , Html.a
+                                [ Attr.href info.accountLink
+                                , Attr.target "_blank"
+                                ]
+                                [ text info.accountName ]
                             ]
-                            [ text info.accountName ]
-                        ]
+                    )
+                    infos
                 )
-                infos
-            )
+            ]
         ]
 
 
 headerView : Html msg
 headerView =
-    div [] [ Html.h1 [] [ text "SuitCase's Site" ] ]
+    Html.header [ class "header" ]
+        [ div [ class "header-container" ]
+            [ div [ class "w-container" ]
+                [ Html.h1 [] [ text "SuitCase's Site" ]
+                ]
+            ]
+        ]
 
 
 view : Model -> Html msg
