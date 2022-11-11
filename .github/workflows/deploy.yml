@@ -1,0 +1,34 @@
+name: deploy my site
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate_my_site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Elm
+        uses: jorelali/setup-elm@v3
+        with:
+          elm-version: 0.19.1
+      - name: Build my site
+        run: make
+      - name: Uplaod my site's artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+
+  deploy_my_site:
+    runs-on: ubuntu-latest
+    needs:
+      - generate_my_site
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: MySite
+      url: ${{ steps.api.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub pages
+        id: mysite
+        uses: actions/deploy-pages@v1
