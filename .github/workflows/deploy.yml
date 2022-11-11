@@ -14,7 +14,7 @@ jobs:
           elm-version: 0.19.1
       - name: Build my site
         run: make
-      - name: Uplaod my site's artifact
+      - name: Upload my site's artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: public
