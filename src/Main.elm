@@ -98,10 +98,17 @@ accountsInfoView infos =
 headerView : Html msg
 headerView =
     Html.header [ class "header" ]
-        [ div [ class "header-container" ]
-            [ div [ class "w-container" ]
-                [ Html.h1 [] [ text "SuitCase's Site" ]
+        [ div [ class "header-container w-container" ]
+            [ div [ class "header-icon-border" ]
+                [ Html.img
+                    [ Attr.src "img/icon.jpg"
+                    , Attr.alt "SuitCase"
+                    , Attr.width 96
+                    , Attr.height 96
+                    ]
+                    []
                 ]
+            , Html.h1 [] [ text "SuitCase's Site" ]
             ]
         ]
 

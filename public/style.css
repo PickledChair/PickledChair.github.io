@@ -6,13 +6,17 @@ body {
   font-family: sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
 .w-container {
   width: min(92%, 900px);
   margin: auto;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
 }
 
 .header {
@@ -23,7 +27,23 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: clamp(0.625rem, 0.2702rem + 1.5136vw, 1.5625rem);
   height: 100%;
+}
+
+.header-icon-border,
+.header-icon-border img {
+  width: clamp(4.125rem, -1.4888rem + 8.982vw, 6rem);
+  height: auto;
+}
+
+.header-icon-border {
+  background-color: #caa177;
+  clip-path: circle(calc(50% - 1px));
+}
+
+.header-icon-border img {
+  clip-path: circle(calc(50% - 4px));
 }
 
 .header-container h1 {
