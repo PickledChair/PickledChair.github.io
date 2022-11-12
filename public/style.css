@@ -57,3 +57,23 @@ h1, h2, h3, h4, h5, h6, p {
   border-top: solid 2px #ae2b2d;
   margin-top: 0.3em;
 }
+
+.accounts-blog-container {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(30px, 3vw, 40px) 0;
+}
+
+@media (min-width: 768px) {
+  .accounts-blog-container {
+    flex-direction: row;
+  }
+
+  .accounts-blog-container > .accounts {
+    flex: 1;
+  }
+
+  .accounts-blog-container > .blog {
+    flex: 1;
+  }
+}

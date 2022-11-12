@@ -61,7 +61,7 @@ initialModel =
 blogInfoView : BlogInfo -> Html msg
 blogInfoView info =
     Html.section [ class "blog" ]
-        [ div [ class "blog-container w-container" ]
+        [ div [ class "blog-container" ]
             [ Html.h2 [ class "heading-decoration" ] [ text "Blog" ]
             , div []
                 [ Html.a
@@ -75,7 +75,7 @@ blogInfoView info =
 accountsInfoView : List AccountInfo -> Html msg
 accountsInfoView infos =
     Html.section [ class "accounts" ]
-        [ div [ class "accounts-container w-container" ]
+        [ div [ class "accounts-container" ]
             [ Html.h2 [ class "heading-decoration" ] [ text "Accounts" ]
             , div []
                 (List.map
@@ -110,8 +110,10 @@ view : Model -> Html msg
 view model =
     div []
         [ headerView
-        , accountsInfoView model.accountInfos
-        , blogInfoView model.blogInfo
+        , div [ class "accounts-blog-container w-container" ]
+            [ accountsInfoView model.accountInfos
+            , blogInfoView model.blogInfo
+            ]
         ]
 
 
