@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-color: #e4f2f4;
+  background-color: #dadef2;
   font-family: sans-serif;
 }
 
@@ -20,7 +20,7 @@ img {
 }
 
 .header {
-  background-color: #384d9f;
+  background-color: #6e75a4;
 }
 
 .header-container {
@@ -38,7 +38,7 @@ img {
 }
 
 .header-icon-border {
-  background-color: #caa177;
+  background-color: #e4cd9f;
   clip-path: circle(calc(50% - 1px));
 }
 
@@ -50,7 +50,7 @@ img {
   padding: 0.9em 0;
   font-family: 'Archivo Black', sans-serif;
   font-size: clamp(48px, 5vw, 68px);
-  color: #f8f9da;
+  color: #eee4cf;
   min-height: 0vw;
   font-weight: 400;
   text-align: center;
@@ -77,7 +77,7 @@ img {
   content: '';
   width: 200px;
   height: 0px;
-  border-top: solid 2px #d23f2a;
+  border-top: solid 2px #cb1b45;
   margin-top: 0.3em;
 }
 

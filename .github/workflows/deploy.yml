@@ -8,16 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Elm
-        uses: jorelali/setup-elm@v3
+      - name: Setup Deno environment
+        uses: denoland/setup-deno@v1
         with:
-          elm-version: 0.19.1
-      - name: Build my site
-        run: make
-      - name: Upload my site's artifact
+          deno-version: v1.x
+      - name: Build site
+        run: deno task build
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: public
+          path: '_site'
 
   deploy_my_site:
     runs-on: ubuntu-latest
@@ -28,8 +28,8 @@ jobs:
       id-token: write
     environment:
       name: MySite
-      url: ${{ steps.api.outputs.page_url }}
+      url: ${{ steps.mysite.outputs.page_url }}
     steps:
       - name: Deploy to GitHub pages
         id: mysite
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
