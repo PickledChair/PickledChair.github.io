@@ -3,7 +3,7 @@ export const layout = "main.njk";
 
 type WebServiceName = "X (Twitter)" | "GitHub";
 
-type AcountInfo = { serviceName: WebServiceName, accountName: string, accountLink: string };
+type AccountInfo = { serviceName: WebServiceName, accountName: string, accountLink: string };
 
 const initialAccountInfos: AccountInfo[] = [
   {
