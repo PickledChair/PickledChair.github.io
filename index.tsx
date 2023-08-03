@@ -70,7 +70,11 @@ const HeaderView = ({ title }: HeaderViewProps) => (
   </header>
 );
 
-export default (data) => (
+interface IndexProps {
+  title: string;
+}
+
+export default (data: IndexProps) => (
   <>
     <HeaderView title={ data.title } />
     <div class="accounts-blog-container w-container">
