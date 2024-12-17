@@ -4,25 +4,26 @@ on:
     branches:
       - main
 jobs:
-  generate_my_site:
+  generate-my-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup Deno environment
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
-          deno-version: v1.x
+          deno-version: v2.x
       - name: Build site
         run: deno task build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        id: mysite
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: '_site'
+          path: '_site/'
 
-  deploy_my_site:
+  deploy-my-site:
     runs-on: ubuntu-latest
     needs:
-      - generate_my_site
+      - generate-my-site
     permissions:
       pages: write
       id-token: write
@@ -32,4 +33,4 @@ jobs:
     steps:
       - name: Deploy to GitHub pages
         id: mysite
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
