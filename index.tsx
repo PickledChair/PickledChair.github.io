@@ -1,7 +1,7 @@
 export const title = "SuitCase's Site";
 export const layout = "main.vto";
 
-type WebServiceName = "X (Twitter)" | "GitHub";
+type WebServiceName = "X (Twitter)" | "GitHub" | "niconico" | "YouTube";
 
 type AccountInfo = { serviceName: WebServiceName, accountName: string, accountLink: string };
 
@@ -15,6 +15,16 @@ const initialAccountInfos: AccountInfo[] = [
     serviceName: "GitHub",
     accountName: "@PickledChair",
     accountLink: "https://github.com/PickledChair",
+  },
+  {
+    serviceName: "niconico",
+    accountName: "SuitCase",
+    accountLink: "https://www.nicovideo.jp/user/22197052",
+  },
+  {
+    serviceName: "YouTube",
+    accountName: "@pickledchair",
+    accountLink: "https://www.youtube.com/@pickledchair",
   },
 ];
 
