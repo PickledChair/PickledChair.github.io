@@ -1,5 +1,5 @@
 export const title = "SuitCase's Site";
-export const layout = "main.njk";
+export const layout = "main.vto";
 
 type WebServiceName = "X (Twitter)" | "GitHub";
 
