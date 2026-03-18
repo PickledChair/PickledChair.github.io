@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "npm:preact"
+    "jsxImportSource": "lume",
+    "types": [
+      "lume/types.ts"
+    ]
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
@@ -9,6 +12,7 @@
     "serve": "deno task lume -s"
   },
   "imports": {
-    "lume/": "https://deno.land/x/lume@v2.4.3/"
+    "lume/": "https://deno.land/x/lume@v3.2.2/",
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.14/jsx-runtime.ts"
   }
 }

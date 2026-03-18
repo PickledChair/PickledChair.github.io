@@ -1,7 +1,7 @@
 export const title = "SuitCase's Site";
 export const layout = "main.vto";
 
-type WebServiceName = "X (Twitter)" | "GitHub" | "niconico" | "YouTube";
+type WebServiceName = "X (Twitter)" | "GitHub" | "niconico" | "YouTube" | "Misskey.io";
 
 type AccountInfo = { serviceName: WebServiceName, accountName: string, accountLink: string };
 
@@ -10,6 +10,11 @@ const initialAccountInfos: AccountInfo[] = [
     serviceName: "X (Twitter)",
     accountName: "@pickled_chair",
     accountLink: "https://x.com/pickled_chair",
+  },
+  {
+    serviceName: "Misskey.io",
+    accountName: "@SuitCase",
+    accountLink: "https://misskey.io/@SuitCase",
   },
   {
     serviceName: "GitHub",
@@ -59,7 +64,7 @@ const AccountsInfoView = ({ accountInfos }: AccountsInfoViewProps) => (
       {
         accountInfos.map(info => (
           <div>
-            { info.serviceName + ": " }<a href={ info.accountLink } target="blank">{info.accountName}</a>
+            { info.serviceName + ": " }<a href={ info.accountLink } target="_blank">{info.accountName}</a>
           </div>
         ))
       }
@@ -80,13 +85,9 @@ const HeaderView = ({ title }: HeaderViewProps) => (
   </header>
 );
 
-interface IndexProps {
-  title: string;
-}
-
-export default (data: IndexProps) => (
+export default (data: Lume.Data, _filters: Lume.Helpers) => (
   <>
-    <HeaderView title={ data.title } />
+    <HeaderView title={ data.title! } />
     <div class="accounts-blog-container w-container">
       <AccountsInfoView accountInfos={initialAccountInfos} />
       <BlogInfoView blogInfo={initialBlogInfo} />
