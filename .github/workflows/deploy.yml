@@ -7,11 +7,11 @@ jobs:
   generate-my-site:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Setup Deno environment
         uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.x
+          deno-version: lts
       - name: Build site
         run: deno task build
       - name: Upload artifact
